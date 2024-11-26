@@ -29,7 +29,7 @@ for z = 1:numImages
                         [49 64 78 87 103 121 120 101];
                         [ 72 92 95 98 112 100 103 99]];
         
-        quantization = quantization / (50/y);
+        quantization = quantization .* (50/y);
     
         arr = [];
         %yet to pad zeros for left out pixels
