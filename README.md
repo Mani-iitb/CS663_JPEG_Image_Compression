@@ -18,13 +18,16 @@ This repository contains a comprehensive set of image compression algorithms imp
 ### Encoding Steps
 
 1. **Preprocessing**:
+
    - Zero-padding of grayscale image to form perfect 8×8 blocks.
 
 2. **DCT & Quantization**:
+
    - DCT applied to each block.
    - Quantization matrix scaled using `50/Q`.
 
 3. **Zig-Zag + RLE + DPCM**:
+
    - Zig-zag scan per block.
    - DC values encoded using DPCM.
    - AC values encoded with RLE.
@@ -63,10 +66,12 @@ This repository contains a comprehensive set of image compression algorithms imp
 ## Performance Evaluation
 
 ### Quality Metrics:
+
 - **Root Mean Square Error (RMSE)**
 - **Bits Per Pixel (BPP)**
 
 ### Graphs:
+
 - **RMSE vs BPP** for multiple Q values.
 - **Average RMSE** across images for each Q.
 - **Average Compression Ratio** vs Q.
@@ -76,10 +81,12 @@ This repository contains a comprehensive set of image compression algorithms imp
 ## Additional Compression Techniques
 
 ### Bitplane Slicing Compression
+
 - 4 MSBs extracted and compressed using DPCM + Huffman coding.
 - High compression, but higher RMSE.
 
 ### PCA + JPEG Hybrid
+
 - 8×8 patches undergo PCA.
 - Eigen coefficients compressed with JPEG.
 - Decompression shows visible block artifacts; used for experimentation.
@@ -88,11 +95,12 @@ This repository contains a comprehensive set of image compression algorithms imp
 
 ## Sample Results
 
-| Q | Grayscale Reconstruction | Color Reconstruction |
-|---|--------------------------|-----------------------|
-| 5 | High compression, blurry | Same                 |
-| 55| Balanced                 | Balanced             |
-| 85| Low compression, high quality | Same         |
+| Q        | Grayscale Reconstruction                               | Color Reconstruction                       |
+| -------- | ------------------------------------------------------ | ------------------------------------------ |
+| original | ![original grayscale](./images/original_grayscale.png) | ![original RGB](./images/original_RGB.png) |
+| 5        | ![Q factor - 5 grayscale](./images/Q5_grayscale.png)   | ![Q factor - 5 RGB](./images/Q5_RGB.png)   |
+| 55       | ![Q factor - 55 grayscale](./images/Q55_grayscale.png) | ![Q factor - 55 RGB](./images/Q55_RGB.png) |
+| 85       | ![Q factor - 85 grayscale](./images/Q85_grayscale.png) | ![Q factor - 85 RGB](./images/Q85_RGB.png) |
 
 ---
 
